@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'facebook_mock.apps.FacebookMockConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
