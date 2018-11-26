@@ -1,1 +1,2 @@
 OPENSHIFT_APP_DNS=*
+APP_MODULE=facebook_django_mock.wsgi:application
