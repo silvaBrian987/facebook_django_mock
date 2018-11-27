@@ -26,7 +26,13 @@ SECRET_KEY = 'jve@)cjr-4z9hvo-n6x49drpa$_&tsgrwmit%k$kv0%t%+md#j'
 DEBUG = True
 #DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '0.0.0.0', '192.168.56.101']
+#ALLOWED_HOSTS = ['localhost', '0.0.0.0', '192.168.56.101']
+ALLOWED_HOSTS = [
+    gethostname(), # For internal OpenShift load balancer security purposes.
+    os.environ.get('OPENSHIFT_APP_DNS'), # Dynamically map to the OpenShift gear name.
+    #'example.com', # First DNS alias (set up in the app)
+    #'www.example.com', # Second DNS alias (set up in the app)
+]
 
 
 # Application definition
