@@ -1,0 +1,18 @@
+#!/bin/bash
+
+git add .
+if [ -n "$1" ]
+then
+	git commit -m "$1"
+else
+	git commit -m "$HOME commit in process $$"
+fi
+git push
+
+sudo s2i build https://github.com/silvaBrian987/facebook_django_mock.git centos/python-36-centos7 facebook-django-mock
+
+#sudo docker login registry.starter-ca-central-1.openshift.com -u $(oc whoami) -p $(oc whoami -t)
+
+sudo docker tag facebook-django-mock registry.starter-ca-central-1.openshift.com/sku/facebook-django-mock:latest
+
+sudo docker push registry.starter-ca-central-1.openshift.com/sku/facebook-django-mock:latest

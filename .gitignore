@@ -104,4 +104,4 @@ venv.bak/
 .mypy_cache/
 
 # my files
-upload.sh
+#upload.sh
