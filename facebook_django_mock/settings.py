@@ -29,6 +29,8 @@ DEBUG = True
 
 #ALLOWED_HOSTS = ['localhost', '0.0.0.0', '192.168.56.101']
 ALLOWED_HOSTS = [
+    'localhost',
+    '0.0.0.0',
     gethostname(), # For internal OpenShift load balancer security purposes.
     os.environ.get('OPENSHIFT_APP_DNS'), # Dynamically map to the OpenShift gear name.
     #'example.com', # First DNS alias (set up in the app)
@@ -39,6 +41,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'facebook_django_mock.apps.FacebookDjangoMockConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
