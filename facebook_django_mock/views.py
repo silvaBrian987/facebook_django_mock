@@ -16,4 +16,4 @@ def mock(request):
 	if len(queryParams.keys()) > 0:
 		print("token de validacion: " + str(queryParams.get("hub.verify_token")))
 		checkId = queryParams.get("hub.challenge")
-	return JsonResponse(checkId)
+	return HttpResponse(checkId)
