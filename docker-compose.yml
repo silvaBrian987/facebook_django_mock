@@ -1,0 +1,35 @@
+version: '3.2'
+
+services:
+  nginx:
+    image: nginx:stable
+    #image: twalter/openshift-nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - target: 8081
+        published: 8081
+        protocol: tcp
+        mode: host
+    depends_on:
+      - gunicorn
+    volumes:
+      - "static:/usr/share/nginx/html/static"
+    labels:
+      kompose.service.expose: "true"
+      kompose.volume.size: 1Gi
+  gunicorn:
+    image: python:3.6-slim
+    build:
+      context: ./gunicorn
+      dockerfile: Dockerfile
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+        mode: host
+    volumes:
+      - "static:/app/static"
+volumes:
+  static:

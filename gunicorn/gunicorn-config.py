@@ -1,10 +1,10 @@
 import logging.config
 import multiprocessing
 
-#bind = "0.0.0.0:8080"
+bind = "0.0.0.0:8080"
 workers = (2 * multiprocessing.cpu_count()) + 1
 #logconfig = "./log.conf"
-loglevel = 'debug'
+#loglevel = 'info'
 
 LOGGING = {
 	'version' : 1,
