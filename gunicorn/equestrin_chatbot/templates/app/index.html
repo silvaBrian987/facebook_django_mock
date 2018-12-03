@@ -1,0 +1,17 @@
+{% load static %}
+<html ng-app="app">
+	<head>
+	<title>Equestrin panel</title>
+	<script type="text/javascript" src="{% static 'app/js/angular.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'app/js/app.js' %}"></script>
+	<link rel="icon" href="{% static 'app/img/equestrin_head.png' %}" type="image/png">
+	</head>
+	<body ng-init="showImg = false">
+		<button ng-click="showImg = !showImg">Mostrar imagen</button>
+		<button ng-click="$root.loginFB()">Login Facebook</button>
+		<div style="width: 100%; height: 100%">
+			<a ng-show="$root.showIframe"></a>
+			<img style="width: 100%; height: 100%" ng-show="showImg" src="{% static 'app/img/dancing_jesus.gif' %}" />
+		</div>
+	</body>
+</html>
