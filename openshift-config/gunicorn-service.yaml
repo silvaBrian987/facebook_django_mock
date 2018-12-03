@@ -4,7 +4,7 @@ metadata:
   annotations:
     kompose.cmd: kompose convert -f docker-compose.yml --provider openshift --deployment-config
       --out openshift-config/ --replicas 0 -v
-    kompose.version: 1.16.0 (0c01309)
+    kompose.version: 1.17.0 (a74acad)
   creationTimestamp: null
   labels:
     io.kompose.service: gunicorn

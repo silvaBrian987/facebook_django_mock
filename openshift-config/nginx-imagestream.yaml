@@ -10,9 +10,9 @@ spec:
   - annotations: null
     from:
       kind: DockerImage
-      name: nginx:stable
+      name: nginx
     generation: null
     importPolicy: {}
-    name: stable
+    name: latest
 status:
   dockerImageRepository: ""

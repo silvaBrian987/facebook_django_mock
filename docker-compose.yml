@@ -1,8 +1,10 @@
 version: '3.2'
 
+volumes:
+  static:
 services:
   nginx:
-    image: nginx:stable
+    #image: nginx:stable
     #image: twalter/openshift-nginx
     build:
       context: ./nginx
@@ -15,12 +17,16 @@ services:
     depends_on:
       - gunicorn
     volumes:
-      - "static:/usr/share/nginx/html/static"
+      #- "static:/usr/share/nginx/html/static"
+      - type: volume
+        source: static
+        target: /usr/share/nginx/html/static
     labels:
       kompose.service.expose: "true"
       kompose.volume.size: 1Gi
+      app: facebook-django-mock
   gunicorn:
-    image: python:3.6-slim
+    #image: python:3.6-slim
     build:
       context: ./gunicorn
       dockerfile: Dockerfile
@@ -30,6 +36,9 @@ services:
         protocol: tcp
         mode: host
     volumes:
-      - "static:/app/static"
-volumes:
-  static:
+      #- "static:/app/static"
+      - type: volume
+        source: static
+        target: /app/static
+    labels:
+        app: facebook-django-mock

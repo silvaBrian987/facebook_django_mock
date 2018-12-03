@@ -10,9 +10,9 @@ spec:
   - annotations: null
     from:
       kind: DockerImage
-      name: python:3.6-slim
+      name: gunicorn
     generation: null
     importPolicy: {}
-    name: 3.6-slim
+    name: latest
 status:
   dockerImageRepository: ""

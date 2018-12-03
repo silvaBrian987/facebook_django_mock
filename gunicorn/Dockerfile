@@ -17,7 +17,8 @@ EXPOSE 8080
 RUN python manage.py makemigrations -v 3 | python manage.py migrate -v 3
 
 # Django collect statics
-RUN yes | python manage.py collectstatic -c
+#RUN yes | python manage.py collectstatic -c
+RUN python manage.py collectstatic -c --noinput
 
 #RUN ls -l -R /app/
 
