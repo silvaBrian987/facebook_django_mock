@@ -94,7 +94,7 @@ DATABASES = {
 """
 DATABASES = {
     'default': {
-        'ENGINE': 'jango.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'facebook_django_mock',
         'USER': 'postgres',
         'PASSWORD': 'uwu',
