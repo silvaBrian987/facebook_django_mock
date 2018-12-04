@@ -13,14 +13,15 @@ RUN pip install -r requirements.txt
 # Make port 80 available to the world outside this container
 EXPOSE 8080
 
-# Django migrate
-RUN python manage.py makemigrations -v 3 | python manage.py migrate -v 3
-
 # Django collect statics
 #RUN yes | python manage.py collectstatic -c
 RUN python manage.py collectstatic -c --noinput
 
 #RUN ls -l -R /app/
+
+# Django migrate
+CMD ["python", "manage.py", "makemigrations", "-v", "3"]
+CMD ["python", "manage.py", "migrate", "-v", "3"]
 
 # Run app.py when the container launches
 CMD ["gunicorn", "-c", "gunicorn-config.py", "facebook_django_mock.wsgi"]
