@@ -42,3 +42,25 @@ services:
         target: /app/static
     labels:
         app: facebook-django-mock
+    depends_on:
+      - db
+  db:
+    image: postgres
+    #restart: always
+    environment:
+      POSTGRES_PASSWORD: uwu
+    ports:
+      - target: 5432
+        published: 5432
+        protocol: tcp
+        mode: host
+  adminer:
+    image: adminer
+    #restart: always
+    ports:
+      - target: 8080
+        published: 3306
+        protocol: tcp
+        mode: host
+    depends_on:
+      - db

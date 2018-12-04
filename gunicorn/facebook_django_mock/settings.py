@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'facebook_django_mock',
         'USER': 'postgres',
         'PASSWORD': 'uwu',
-        'HOST': 'db:5432'
+        'HOST': 'db'
     }
 }
 
