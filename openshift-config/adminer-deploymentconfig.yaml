@@ -2,51 +2,41 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   annotations:
-    app: facebook-django-mock
     kompose.cmd: kompose convert --provider openshift -o openshift-config/
-    kompose.service.expose: "true"
     kompose.version: 1.17.0 (a74acad)
-    kompose.volume.size: 1Gi
   creationTimestamp: null
   labels:
-    io.kompose.service: nginx
-  name: nginx
+    io.kompose.service: adminer
+    app: facebook-django-mock
+  name: adminer
 spec:
   replicas: 1
   selector:
-    io.kompose.service: nginx
+    io.kompose.service: adminer
   strategy:
     resources: {}
-    type: Recreate
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: nginx
+        io.kompose.service: adminer
     spec:
       containers:
       - image: ' '
-        name: nginx
+        name: adminer
         ports:
-        - containerPort: 8081
+        - containerPort: 8080
         resources: {}
-        volumeMounts:
-        - mountPath: /usr/share/nginx/html/static
-          name: static
       restartPolicy: Always
-      volumes:
-      - name: static
-        persistentVolumeClaim:
-          claimName: static
   test: false
   triggers:
   - type: ConfigChange
   - imageChangeParams:
       automatic: true
       containerNames:
-      - nginx
+      - adminer
       from:
         kind: ImageStreamTag
-        name: nginx:latest
+        name: adminer:latest
     type: ImageChange
 status: {}

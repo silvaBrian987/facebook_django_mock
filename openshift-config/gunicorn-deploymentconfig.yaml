@@ -2,15 +2,15 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   annotations:
-    kompose.cmd: kompose convert -f docker-compose.yml --provider openshift --deployment-config
-      --out openshift-config/ --replicas 0 -v
+    app: facebook-django-mock
+    kompose.cmd: kompose convert --provider openshift -o openshift-config/
     kompose.version: 1.17.0 (a74acad)
   creationTimestamp: null
   labels:
     io.kompose.service: gunicorn
   name: gunicorn
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     io.kompose.service: gunicorn
   strategy:
