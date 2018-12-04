@@ -56,7 +56,7 @@ def loginFB(request):
 		redirect_uri = "https://" + request.get_host() + request.path
 		logger.info("redirect_uri=" + redirect_uri)
 		payload = {'client_id' : app_id, 'redirect_uri' : redirect_uri, 'client_secret' : app_secret, 'code' : request.GET['code']}
-		fb_response = requests.get('https://graph.facebook.com/v3.2/oauth/access_token', params=payload)
+		fb_response = requests.get('https://graph.facebook.com/v3.2/oauth/access_token', params=payload, verify=False)
 		logger.info(fb_response)
 		logger.info(fb_response.text)
 		#return 
