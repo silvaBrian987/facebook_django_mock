@@ -53,7 +53,10 @@ def loginFB(request):
 	app_secret = Configuracion.objects.get(clave='facebook.app.secret').valor
 
 	if "code" in request.GET:
-		redirect_uri = "https://" + request.get_host() + request.path
+		if "redirect_uri" in request.GET:
+			redirect_uri = request.GET['redirect_uri']
+		else:
+			redirect_uri = "https://" + request.get_host() + request.path
 		logger.info("redirect_uri=" + redirect_uri)
 		payload = {'client_id' : app_id, 'redirect_uri' : redirect_uri, 'client_secret' : app_secret, 'code' : request.GET['code']}
 		fb_response = requests.get('https://graph.facebook.com/v3.2/oauth/access_token', params=payload, verify=False)
