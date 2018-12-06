@@ -2,12 +2,12 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   annotations:
-    kompose.cmd: kompose convert --provider openshift -o openshift-config/
+    app: facebook-django-mock
+    kompose.cmd: kompose convert --provider openshift -o openshift-config/ -v
     kompose.version: 1.17.0 (a74acad)
   creationTimestamp: null
   labels:
     io.kompose.service: db
-    app: facebook-django-mock
   name: db
 spec:
   replicas: 1
@@ -22,13 +22,19 @@ spec:
         io.kompose.service: db
     spec:
       containers:
-      - env:
-        - name: POSTGRES_PASSWORD
+      - args:
+        - --default-authentication-plugin=mysql_native_password
+        env:
+        - name: MYSQL_DATABASE
+          value: facebook_django_mock
+        - name: MYSQL_PASSWORD
+          value: pija
+        - name: MYSQL_ROOT_PASSWORD
           value: uwu
+        - name: MYSQL_USER
+          value: equestrin
         image: ' '
         name: db
-        ports:
-        - containerPort: 5432
         resources: {}
       restartPolicy: Always
   test: false

@@ -4,7 +4,6 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: adminer
-    app: facebook-django-mock
   name: adminer
 spec:
   tags:

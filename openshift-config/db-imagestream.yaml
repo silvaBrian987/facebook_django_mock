@@ -4,14 +4,13 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: db
-    app: facebook-django-mock
   name: db
 spec:
   tags:
   - annotations: null
     from:
       kind: DockerImage
-      name: postgres
+      name: registry.access.redhat.com/rhscl/mysql-57-rhel7
     generation: null
     importPolicy: {}
     name: latest

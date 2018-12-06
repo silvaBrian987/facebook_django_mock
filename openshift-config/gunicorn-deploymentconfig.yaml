@@ -3,7 +3,7 @@ kind: DeploymentConfig
 metadata:
   annotations:
     app: facebook-django-mock
-    kompose.cmd: kompose convert --provider openshift -o openshift-config/
+    kompose.cmd: kompose convert --provider openshift -o openshift-config/ -v
     kompose.version: 1.17.0 (a74acad)
   creationTimestamp: null
   labels:

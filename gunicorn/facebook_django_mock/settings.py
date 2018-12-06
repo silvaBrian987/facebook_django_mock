@@ -94,11 +94,14 @@ DATABASES = {
 """
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'facebook_django_mock',
-        'USER': 'postgres',
-        'PASSWORD': 'uwu',
-        'HOST': 'db'
+        'USER': 'equestrin',
+        'PASSWORD': 'pija',
+        'HOST': 'db',
+        'OPTIONS': {
+          'autocommit': True,
+        },
     }
 }
 
