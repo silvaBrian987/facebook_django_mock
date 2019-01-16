@@ -9,7 +9,7 @@
 		let $document = angular.element(document);
 
 		$rootScope.loginFB = function(){
-			$http.get('loginFB').then(function(response){
+			$http.get('loginFB/').then(function(response){
 				$log.info(response);
 				if(response.data.loginURL){
 					//window.location.href = response.data.loginURL;

@@ -1,6 +1,13 @@
 # Use an official Python runtime as a parent image
 FROM python:3.6-slim
 
+# Instalamos algunas cosas
+RUN apt-get update && /
+apt-get install -y git
+
+# Bajamos la ultima version de la aplicacion
+#RUN git clone
+
 # Set the working directory to /app
 WORKDIR /app
 
